@@ -2,8 +2,16 @@ def main(game_name):
     from selenium import webdriver
     from selenium.webdriver.common.by import By
     from selenium.webdriver.common.keys import Keys
+    import os
+    
+    chrome_options = webdriver.ChromeOptions()
+    chrome_options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
+    chrome_options.add_argument("--headless")
+    chrome_options.add_argument("--disable-dev-shm-usage")
+    chrome_options.add_argument("--no-sandbox")
+    driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=chrome_options)
 
-    driver = webdriver.Chrome(executable_path="/usr/local/bin/chromedriver")
+    #driver = webdriver.Chrome(executable_path="/usr/local/bin/chromedriver")
 
     driver.get("https://fitgirl-repacks.site/")
     driver.find_element(By.CLASS_NAME, "search-toggle").click()
@@ -30,7 +38,17 @@ def upcoming_repacks():
     from selenium.webdriver.common.by import By
     from selenium.webdriver.common.keys import Keys
 
-    driver = webdriver.Chrome(executable_path="/usr/local/bin/chromedriver")
+    import os
+    
+    chrome_options = webdriver.ChromeOptions()
+    chrome_options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
+    chrome_options.add_argument("--headless")
+    chrome_options.add_argument("--disable-dev-shm-usage")
+    chrome_options.add_argument("--no-sandbox")
+    driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=chrome_options)
+
+
+    #driver = webdriver.Chrome(executable_path="/usr/local/bin/chromedriver")
 
     driver.get("https://fitgirl-repacks.site/")
 
